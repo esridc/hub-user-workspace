@@ -6,14 +6,14 @@ To work on the code for this project
 
 ```bash
 git clone https://github.com/esridc/hub-user-workspace.git
-cd dc-council
+cd hub-user-workspace
 ```
 
 and run:
 
 ```bash
-npm install
-npm start
+npm install --legacy-peer-deps
+npm run start
 ```
 
 To build the component for production, run:
