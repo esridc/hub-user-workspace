@@ -53,7 +53,6 @@ export class HubStatus {
   render() {
     return (
       <Host>
-        <h2><slot>Hub Service status</slot></h2>
         <ul>
           <li>Overall: {this.status?.overview?.status}</li>
           {this.status?.services?.map((s) => {

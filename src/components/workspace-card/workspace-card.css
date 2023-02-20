@@ -2,6 +2,32 @@
   display: block;
   width: 300px;
   height: 300px;
-  border: 1px dashed gray;
+  border: 1px solid rgb(161, 161, 161);
   overflow: auto;
+  position: relative;
+}
+.title {
+  font-weight: 600;
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #888;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+}
+.body {
+  padding: 0.5rem;
+}
+.tab {
+  line-height: 3em;
+  display: none;
+  cursor: pointer;
+
+}
+:host(:hover) .tab {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  top: -10px;
+  border: 1px solid #AAA;
+  background-color: #DDD;
 }

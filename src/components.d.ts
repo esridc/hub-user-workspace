@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface HubActivityStats {
+    }
     interface HubChangelog {
     }
     interface HubFeed {
@@ -21,6 +23,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLHubActivityStatsElement extends Components.HubActivityStats, HTMLStencilElement {
+    }
+    var HTMLHubActivityStatsElement: {
+        prototype: HTMLHubActivityStatsElement;
+        new (): HTMLHubActivityStatsElement;
+    };
     interface HTMLHubChangelogElement extends Components.HubChangelog, HTMLStencilElement {
     }
     var HTMLHubChangelogElement: {
@@ -58,6 +66,7 @@ declare global {
         new (): HTMLWorkspaceCardElement;
     };
     interface HTMLElementTagNameMap {
+        "hub-activity-stats": HTMLHubActivityStatsElement;
         "hub-changelog": HTMLHubChangelogElement;
         "hub-feed": HTMLHubFeedElement;
         "hub-status": HTMLHubStatusElement;
@@ -67,6 +76,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface HubActivityStats {
+    }
     interface HubChangelog {
     }
     interface HubFeed {
@@ -81,6 +92,7 @@ declare namespace LocalJSX {
     interface WorkspaceCard {
     }
     interface IntrinsicElements {
+        "hub-activity-stats": HubActivityStats;
         "hub-changelog": HubChangelog;
         "hub-feed": HubFeed;
         "hub-status": HubStatus;
@@ -93,6 +105,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hub-activity-stats": LocalJSX.HubActivityStats & JSXBase.HTMLAttributes<HTMLHubActivityStatsElement>;
             "hub-changelog": LocalJSX.HubChangelog & JSXBase.HTMLAttributes<HTMLHubChangelogElement>;
             "hub-feed": LocalJSX.HubFeed & JSXBase.HTMLAttributes<HTMLHubFeedElement>;
             "hub-status": LocalJSX.HubStatus & JSXBase.HTMLAttributes<HTMLHubStatusElement>;

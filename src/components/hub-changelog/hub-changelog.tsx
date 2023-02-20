@@ -11,7 +11,6 @@ export class HubChangelog {
     return (
       <Host>
         <slot></slot>
-        <h2>Changelog</h2>
         <ul>
           <li>Item 1</li>
           <li>Item 2</li>
