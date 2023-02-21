@@ -5,12 +5,17 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IHubCollection } from "@esri/hub-common";
 export namespace Components {
     interface HubActivityStats {
     }
     interface HubChangelog {
     }
     interface HubFeed {
+        /**
+          * Definition of feed parameters
+         */
+        "collection": IHubCollection;
     }
     interface HubStatus {
         "statusUrl": string;
@@ -81,6 +86,10 @@ declare namespace LocalJSX {
     interface HubChangelog {
     }
     interface HubFeed {
+        /**
+          * Definition of feed parameters
+         */
+        "collection"?: IHubCollection;
     }
     interface HubStatus {
         "statusUrl"?: string;

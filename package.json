@@ -33,7 +33,9 @@
     "generate": "stencil generate"
   },
   "dependencies": {
+    "@esri/hub-common": "^12.6.1",
     "@stencil/core": "^2.13.0",
+    "@types/node": "^18.14.0",
     "esri-loader": "^3.6.0"
   },
   "devDependencies": {
