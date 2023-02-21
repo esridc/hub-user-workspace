@@ -1,6 +1,6 @@
 :host {
   display: block;
-  width: 300px;
+  width: auto;
   height: 300px;
   border: 1px solid rgb(161, 161, 161);
   overflow: auto;

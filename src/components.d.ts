@@ -26,6 +26,8 @@ export namespace Components {
     }
     interface WorkspaceCard {
     }
+    interface WorkspaceNavigation {
+    }
 }
 declare global {
     interface HTMLHubActivityStatsElement extends Components.HubActivityStats, HTMLStencilElement {
@@ -70,6 +72,12 @@ declare global {
         prototype: HTMLWorkspaceCardElement;
         new (): HTMLWorkspaceCardElement;
     };
+    interface HTMLWorkspaceNavigationElement extends Components.WorkspaceNavigation, HTMLStencilElement {
+    }
+    var HTMLWorkspaceNavigationElement: {
+        prototype: HTMLWorkspaceNavigationElement;
+        new (): HTMLWorkspaceNavigationElement;
+    };
     interface HTMLElementTagNameMap {
         "hub-activity-stats": HTMLHubActivityStatsElement;
         "hub-changelog": HTMLHubChangelogElement;
@@ -78,6 +86,7 @@ declare global {
         "hub-text": HTMLHubTextElement;
         "hub-user-workspace": HTMLHubUserWorkspaceElement;
         "workspace-card": HTMLWorkspaceCardElement;
+        "workspace-navigation": HTMLWorkspaceNavigationElement;
     }
 }
 declare namespace LocalJSX {
@@ -100,6 +109,8 @@ declare namespace LocalJSX {
     }
     interface WorkspaceCard {
     }
+    interface WorkspaceNavigation {
+    }
     interface IntrinsicElements {
         "hub-activity-stats": HubActivityStats;
         "hub-changelog": HubChangelog;
@@ -108,6 +119,7 @@ declare namespace LocalJSX {
         "hub-text": HubText;
         "hub-user-workspace": HubUserWorkspace;
         "workspace-card": WorkspaceCard;
+        "workspace-navigation": WorkspaceNavigation;
     }
 }
 export { LocalJSX as JSX };
@@ -121,6 +133,7 @@ declare module "@stencil/core" {
             "hub-text": LocalJSX.HubText & JSXBase.HTMLAttributes<HTMLHubTextElement>;
             "hub-user-workspace": LocalJSX.HubUserWorkspace & JSXBase.HTMLAttributes<HTMLHubUserWorkspaceElement>;
             "workspace-card": LocalJSX.WorkspaceCard & JSXBase.HTMLAttributes<HTMLWorkspaceCardElement>;
+            "workspace-navigation": LocalJSX.WorkspaceNavigation & JSXBase.HTMLAttributes<HTMLWorkspaceNavigationElement>;
         }
     }
 }

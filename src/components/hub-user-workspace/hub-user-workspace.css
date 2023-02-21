@@ -2,10 +2,38 @@
   display: block;
   overflow: scroll;
 }
-
-.space {
+.workspace {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-columns: 10rem auto;
+  grid-template-rows: auto;  
+  grid-template-areas: 
+    "global global"
+    "header header"
+    "navigation space"
+    "footer footer";  
+}
+#global {
+  grid-area: global;
+  background-color: #4e4e4e;
+}
+#header {
+  grid-area: header;
+  border-bottom: 1px gray;
+}
+#navigation {
+  grid-area: navigation;
+}
+#footer {
+  grid-area: footer;
+  border-top: 1px solid gray;
+  background-color: #fefefe;
+  padding: 2rem;
+}
+#space {
+  grid-area: space;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);  
 }
+
