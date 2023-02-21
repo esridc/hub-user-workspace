@@ -44,18 +44,16 @@ export class HubFeed {
     return (
       <Host>
         <slot></slot>
-        <div id="entries">
+        <calcite-list>
           {this.entries?.map((entry) => {
             return (
-              <div class="entry">
-                <span class="title">{entry.name}</span>
-                <span class="timestamp">
-                  {timeAgo(entry.updatedDate)}
-                </span>
-              </div>
+              <calcite-list-item label={entry.name} description={timeAgo(entry.updatedDate)}>
+                <calcite-action icon="ellipsis" label="menu" slot="actions-end"></calcite-action>
+                {/* <calcite-action icon="x" label="remove" slot="actions-end"></calcite-action> */}
+              </calcite-list-item>
             )
           })}
-        </div>
+        </calcite-list>
       </Host>
     );
   }
