@@ -9,15 +9,21 @@ export function buildCollection(options) {
       targetEntity: options.type ?? 'item',
       filters: [
         {
-          predicates: [
-            {
-              term: [options.query ?? 'water'],
-            },
-          ],
+          predicates: [],
         },
       ],
     },
   };
+  if(!!options.query) {
+    collection.scope.filters[0].predicates.push({
+      term: options.query
+    })
+  }
+  if(!!options.groups) {
+    collection.scope.filters[0].predicates.push({
+      group: options.groups
+    })
+  }
     // const collection = guideCollection;
   return collection;
 }

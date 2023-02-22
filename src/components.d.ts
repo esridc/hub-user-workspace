@@ -11,6 +11,10 @@ export namespace Components {
     }
     interface HubChangelog {
     }
+    interface HubCollaborations {
+    }
+    interface HubDiscussionsModeration {
+    }
     interface HubFeed {
         /**
           * Definition of feed parameters
@@ -41,6 +45,18 @@ declare global {
     var HTMLHubChangelogElement: {
         prototype: HTMLHubChangelogElement;
         new (): HTMLHubChangelogElement;
+    };
+    interface HTMLHubCollaborationsElement extends Components.HubCollaborations, HTMLStencilElement {
+    }
+    var HTMLHubCollaborationsElement: {
+        prototype: HTMLHubCollaborationsElement;
+        new (): HTMLHubCollaborationsElement;
+    };
+    interface HTMLHubDiscussionsModerationElement extends Components.HubDiscussionsModeration, HTMLStencilElement {
+    }
+    var HTMLHubDiscussionsModerationElement: {
+        prototype: HTMLHubDiscussionsModerationElement;
+        new (): HTMLHubDiscussionsModerationElement;
     };
     interface HTMLHubFeedElement extends Components.HubFeed, HTMLStencilElement {
     }
@@ -81,6 +97,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "hub-activity-stats": HTMLHubActivityStatsElement;
         "hub-changelog": HTMLHubChangelogElement;
+        "hub-collaborations": HTMLHubCollaborationsElement;
+        "hub-discussions-moderation": HTMLHubDiscussionsModerationElement;
         "hub-feed": HTMLHubFeedElement;
         "hub-status": HTMLHubStatusElement;
         "hub-text": HTMLHubTextElement;
@@ -93,6 +111,10 @@ declare namespace LocalJSX {
     interface HubActivityStats {
     }
     interface HubChangelog {
+    }
+    interface HubCollaborations {
+    }
+    interface HubDiscussionsModeration {
     }
     interface HubFeed {
         /**
@@ -114,6 +136,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "hub-activity-stats": HubActivityStats;
         "hub-changelog": HubChangelog;
+        "hub-collaborations": HubCollaborations;
+        "hub-discussions-moderation": HubDiscussionsModeration;
         "hub-feed": HubFeed;
         "hub-status": HubStatus;
         "hub-text": HubText;
@@ -128,6 +152,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "hub-activity-stats": LocalJSX.HubActivityStats & JSXBase.HTMLAttributes<HTMLHubActivityStatsElement>;
             "hub-changelog": LocalJSX.HubChangelog & JSXBase.HTMLAttributes<HTMLHubChangelogElement>;
+            "hub-collaborations": LocalJSX.HubCollaborations & JSXBase.HTMLAttributes<HTMLHubCollaborationsElement>;
+            "hub-discussions-moderation": LocalJSX.HubDiscussionsModeration & JSXBase.HTMLAttributes<HTMLHubDiscussionsModerationElement>;
             "hub-feed": LocalJSX.HubFeed & JSXBase.HTMLAttributes<HTMLHubFeedElement>;
             "hub-status": LocalJSX.HubStatus & JSXBase.HTMLAttributes<HTMLHubStatusElement>;
             "hub-text": LocalJSX.HubText & JSXBase.HTMLAttributes<HTMLHubTextElement>;

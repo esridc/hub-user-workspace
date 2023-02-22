@@ -43,7 +43,8 @@
     "@esri/calcite-components": "^1.0.0-beta.97",
     "@esri/hub-components": "^4.1.2",
     "@stencil/sass": "^2.0.0",
-    "@stencil/store": "^2.0.1"
+    "@stencil/store": "^2.0.1",
+    "@types/geojson": "^7946.0.10"
   },
   "license": "MIT"
 }

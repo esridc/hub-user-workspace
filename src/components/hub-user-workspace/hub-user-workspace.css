@@ -18,22 +18,28 @@
 }
 #header {
   grid-area: header;
-  border-bottom: 1px gray;
+  border-bottom: 1px solid gray;
+  display: none;
 }
 #navigation {
   grid-area: navigation;
+  border-right: 1px solid gray;
 }
 #footer {
   grid-area: footer;
   border-top: 1px solid gray;
   background-color: #fefefe;
   padding: 2rem;
+  margin-top: 1rem;
 }
 #space {
   grid-area: space;
+}
+#space div {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);  
+  padding: 1rem;
 }
 

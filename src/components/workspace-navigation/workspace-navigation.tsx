@@ -23,28 +23,31 @@ export class WorkspaceNavigation {
   }
   @Listen('arcgisAppIdentitySignedIn')
   signedinEvent(evt) {
-    console.log('arcgisAppIdentitySignedIn', {evt})
-    state.user = evt.detail._currentUser;
-  
+    state.context = evt.detail;  
   }
   @Listen('arcgisAppIdentitySignedOut')
-  signedoutEvent(evt) {
-    console.log('arcgisAppIdentitySignedOut', {evt})
-    state.user = null;
+  signedoutEvent(_evt) {
+    state.context = null;
   }
 
   render() {
     return (
       <Host>
         <slot></slot>
-        <arcgis-app-identity 
-          client-id="sDSiUiURVoPBmjYJ" 
-          redirect-uri="http://localhost:3333/redirect.html" 
-          portal="https://qaext.arcgis.com">  
-        </arcgis-app-identity>
+        <span id="title">
+          ArcGIS Hub
+        </span>
+          <span id="profile">
+          <arcgis-app-identity 
+            client-id={state.app.client}
+            redirect-uri={state.app.redirect}
+            portal={state.app.portal}
+          >  
+          </arcgis-app-identity>
 
-        
-        {this.renderIdentity()}
+          
+          {this.renderIdentity()}
+        </span>
       </Host>
     );
   }

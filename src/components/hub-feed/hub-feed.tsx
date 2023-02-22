@@ -1,6 +1,8 @@
 import { IHubCollection, IHubSearchOptions, IQuery, hubSearch } from '@esri/hub-common';
 import { Component, Host, Prop, State, h } from '@stencil/core';
 import { timeAgo } from '../../utils/time';
+import state from '../../utils/state';
+// import { UserSession } from '@esri/arcgis-rest-auth';
 
 @Component({
   tag: 'hub-feed',
@@ -28,16 +30,15 @@ export class HubFeed {
 
       // Feed defaults to reverse chronological
       const options:IHubSearchOptions = {
-        requestOptions: {},
         sortOrder: 'desc',
-        sortField: 'modified'
+        sortField: 'modified',
+        requestOptions: state.context.hubRequestOptions
       };
 
-      console.log({collection: this.collection})
+      console.log({options: options, collection: this.collection})
       const results = await hubSearch(query, options)
       console.log({collection: this.collection, results})
       this.entries = results.results;
-      // this.results = 
     }
   }
   render() {
@@ -48,7 +49,18 @@ export class HubFeed {
           {this.entries?.map((entry) => {
             return (
               <calcite-list-item label={entry.name} description={timeAgo(entry.updatedDate)}>
-                <calcite-action icon="ellipsis" label="menu" slot="actions-end"></calcite-action>
+                <calcite-icon scale="s" icon="files" slot="content-start"></calcite-icon>
+                <calcite-dropdown scale="m" slot="actions-end">
+                
+                  <calcite-action icon="ellipsis" label="menu"  slot="dropdown-trigger"></calcite-action>
+                  <calcite-dropdown-group>
+                  <calcite-dropdown-item
+                    onclick={() => { window.open( `${state.context.hubUrl}/content/${entry.id}` , '_blank'); }}
+                  >
+                    View Item
+                  </calcite-dropdown-item>
+                </calcite-dropdown-group>
+              </calcite-dropdown>
                 {/* <calcite-action icon="x" label="remove" slot="actions-end"></calcite-action> */}
               </calcite-list-item>
             )

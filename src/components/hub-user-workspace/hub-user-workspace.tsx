@@ -1,5 +1,6 @@
 import { Component, Host, h } from '@stencil/core';
 import { buildCollection } from '../../utils/feeds';
+import state from '../../utils/state';
 
 @Component({
   tag: 'hub-user-workspace',
@@ -10,7 +11,7 @@ export class HubUserWorkspace {
 
   render() {
     return (
-      <Host>  
+      <Host>
         <div class="workspace">
           <div id="global">
             <workspace-navigation></workspace-navigation>
@@ -22,6 +23,33 @@ export class HubUserWorkspace {
             navigation
           </div>
           <div id="space">
+            {!!state.user ? this.renderWorkspace() : []}
+            
+          </div>
+          {/* <arcgis-hub-workspace
+            type="project" 
+          ></arcgis-hub-workspace> */}
+
+          <div id="footer">
+            <em>footer...</em>
+          </div>
+        </div>
+      </Host>
+    );
+  }
+
+  renderWorkspace() {
+    return (
+      <div>
+      <workspace-card>
+              <span slot="title">Collaborations</span>
+              <hub-collaborations></hub-collaborations>
+            </workspace-card>
+            {/* // re-add after creating channels
+              <workspace-card>
+              <span slot="title">Channels</span>
+              <hub-discussions-moderation></hub-discussions-moderation>
+            </workspace-card> */}
             <workspace-card>
               <span slot="title">About this Workspace</span>
               <hub-text>
@@ -42,7 +70,7 @@ export class HubUserWorkspace {
             <workspace-card>
               <span slot="title">Recent Updates</span>
               <hub-feed
-                  collection={buildCollection({query: 'Escondido', type: 'item'})}
+                  collection={buildCollection({query: ['Initiative'], type: 'item'})}
               />
             </workspace-card>          
 
@@ -63,7 +91,9 @@ export class HubUserWorkspace {
 
             <workspace-card>
               <span slot="title">Favorites</span>
-              <em>Favorites list coming...</em>
+              <hub-feed
+                  collection={buildCollection({groups: [ state.user.favGroupId ], type: 'item'})}
+              />
             </workspace-card>
 
             <workspace-card>
@@ -87,18 +117,8 @@ export class HubUserWorkspace {
                 collection={guideCollection}
               ></hub-feed>
             </workspace-card> */}
-
-          </div>
-          {/* <arcgis-hub-workspace
-            type="project" 
-          ></arcgis-hub-workspace> */}
-
-          <div id="footer">
-            <em>footer...</em>
-          </div>
-        </div>
-      </Host>
-    );
+      </div>
+    )
   }
 
 }
