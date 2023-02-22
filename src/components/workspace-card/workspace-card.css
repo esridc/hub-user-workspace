@@ -3,8 +3,9 @@
   width: auto;
   height: 300px;
   border: 1px solid rgb(161, 161, 161);
-  overflow: auto;
   position: relative;
+  overflow: auto;
+
 }
 .title {
   font-weight: 600;
@@ -13,6 +14,10 @@
   border-bottom: 1px solid #888;
   background-color: #f0f0f0;
   padding: 0.5rem;
+  height: 20px;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
 }
 .tab {
   line-height: 3em;

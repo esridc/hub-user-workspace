@@ -23,7 +23,7 @@ export class WorkspaceNavigation {
   }
   @Listen('arcgisAppIdentitySignedIn')
   signedinEvent(evt) {
-    state.context = evt.detail;  
+    state.context = evt.detail;
   }
   @Listen('arcgisAppIdentitySignedOut')
   signedoutEvent(_evt) {

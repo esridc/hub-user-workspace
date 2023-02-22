@@ -35,9 +35,7 @@ export class HubFeed {
         requestOptions: state.context.hubRequestOptions
       };
 
-      console.log({options: options, collection: this.collection})
       const results = await hubSearch(query, options)
-      console.log({collection: this.collection, results})
       this.entries = results.results;
     }
   }

@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  padding: 0.2rem;
+}
+#prompt {
+  
+  font-weight: 400;
+  font-style: italic;
+}

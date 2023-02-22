@@ -20,7 +20,7 @@ onChange('user', value => {
 onChange('context', value => {
     console.debug("Updated context", {context: value})
     state.context = value;
-    state.user = value._currentUser;
+    state.user = value?._currentUser;
 });
 
 export default state;

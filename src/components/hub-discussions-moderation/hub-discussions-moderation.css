@@ -1,3 +1,13 @@
 :host {
   display: block;
 }
+#posts {
+  min-height: calc(100vh-70px);
+  overflow-y: scroll;
+}
+#editor {
+  height: 70px;
+  bottom: 0px;
+  position: sticky;
+  background-color: white;
+}

@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IPost } from "@esri/hub-discussions";
 import { IHubCollection } from "@esri/hub-common";
 export namespace Components {
     interface HubActivityStats {
@@ -13,7 +14,14 @@ export namespace Components {
     }
     interface HubCollaborations {
     }
+    interface HubDiscussionsChannels {
+    }
     interface HubDiscussionsModeration {
+        "channelId": string;
+        "posts": IPost[];
+    }
+    interface HubDiscussionsPostEditor {
+        "channelId": string;
     }
     interface HubFeed {
         /**
@@ -52,11 +60,23 @@ declare global {
         prototype: HTMLHubCollaborationsElement;
         new (): HTMLHubCollaborationsElement;
     };
+    interface HTMLHubDiscussionsChannelsElement extends Components.HubDiscussionsChannels, HTMLStencilElement {
+    }
+    var HTMLHubDiscussionsChannelsElement: {
+        prototype: HTMLHubDiscussionsChannelsElement;
+        new (): HTMLHubDiscussionsChannelsElement;
+    };
     interface HTMLHubDiscussionsModerationElement extends Components.HubDiscussionsModeration, HTMLStencilElement {
     }
     var HTMLHubDiscussionsModerationElement: {
         prototype: HTMLHubDiscussionsModerationElement;
         new (): HTMLHubDiscussionsModerationElement;
+    };
+    interface HTMLHubDiscussionsPostEditorElement extends Components.HubDiscussionsPostEditor, HTMLStencilElement {
+    }
+    var HTMLHubDiscussionsPostEditorElement: {
+        prototype: HTMLHubDiscussionsPostEditorElement;
+        new (): HTMLHubDiscussionsPostEditorElement;
     };
     interface HTMLHubFeedElement extends Components.HubFeed, HTMLStencilElement {
     }
@@ -98,7 +118,9 @@ declare global {
         "hub-activity-stats": HTMLHubActivityStatsElement;
         "hub-changelog": HTMLHubChangelogElement;
         "hub-collaborations": HTMLHubCollaborationsElement;
+        "hub-discussions-channels": HTMLHubDiscussionsChannelsElement;
         "hub-discussions-moderation": HTMLHubDiscussionsModerationElement;
+        "hub-discussions-post-editor": HTMLHubDiscussionsPostEditorElement;
         "hub-feed": HTMLHubFeedElement;
         "hub-status": HTMLHubStatusElement;
         "hub-text": HTMLHubTextElement;
@@ -114,7 +136,14 @@ declare namespace LocalJSX {
     }
     interface HubCollaborations {
     }
+    interface HubDiscussionsChannels {
+    }
     interface HubDiscussionsModeration {
+        "channelId"?: string;
+        "posts"?: IPost[];
+    }
+    interface HubDiscussionsPostEditor {
+        "channelId"?: string;
     }
     interface HubFeed {
         /**
@@ -137,7 +166,9 @@ declare namespace LocalJSX {
         "hub-activity-stats": HubActivityStats;
         "hub-changelog": HubChangelog;
         "hub-collaborations": HubCollaborations;
+        "hub-discussions-channels": HubDiscussionsChannels;
         "hub-discussions-moderation": HubDiscussionsModeration;
+        "hub-discussions-post-editor": HubDiscussionsPostEditor;
         "hub-feed": HubFeed;
         "hub-status": HubStatus;
         "hub-text": HubText;
@@ -153,7 +184,9 @@ declare module "@stencil/core" {
             "hub-activity-stats": LocalJSX.HubActivityStats & JSXBase.HTMLAttributes<HTMLHubActivityStatsElement>;
             "hub-changelog": LocalJSX.HubChangelog & JSXBase.HTMLAttributes<HTMLHubChangelogElement>;
             "hub-collaborations": LocalJSX.HubCollaborations & JSXBase.HTMLAttributes<HTMLHubCollaborationsElement>;
+            "hub-discussions-channels": LocalJSX.HubDiscussionsChannels & JSXBase.HTMLAttributes<HTMLHubDiscussionsChannelsElement>;
             "hub-discussions-moderation": LocalJSX.HubDiscussionsModeration & JSXBase.HTMLAttributes<HTMLHubDiscussionsModerationElement>;
+            "hub-discussions-post-editor": LocalJSX.HubDiscussionsPostEditor & JSXBase.HTMLAttributes<HTMLHubDiscussionsPostEditorElement>;
             "hub-feed": LocalJSX.HubFeed & JSXBase.HTMLAttributes<HTMLHubFeedElement>;
             "hub-status": LocalJSX.HubStatus & JSXBase.HTMLAttributes<HTMLHubStatusElement>;
             "hub-text": LocalJSX.HubText & JSXBase.HTMLAttributes<HTMLHubTextElement>;
