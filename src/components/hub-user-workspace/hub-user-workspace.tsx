@@ -38,7 +38,9 @@ export class HubUserWorkspace {
         <workspace-card>
           <span slot="title">About this Workspace</span>
           <hub-text>
-            Personalized workspace for {state.user.fullName}. There is quick access to my favorites, specific project discussions, and recent content.
+            Personalized workspace for <a href={`${state.context.hubUrl}/people/${state.user.username}`}>{state.user.fullName}</a>. 
+            <br /><br />
+            There is quick access to my favorites, specific project discussions, and recent content.
           </hub-text>
         </workspace-card>
 
@@ -63,6 +65,11 @@ export class HubUserWorkspace {
         </workspace-card>
 
         <workspace-card>
+          <span slot="title">Notifications</span>
+          <hub-user-notifications></hub-user-notifications>
+        </workspace-card>        
+
+        <workspace-card>
           <span slot="title">Favorites</span>
           <hub-feed collection={buildCollection({ groups: [state.user.favGroupId], type: 'item' })} />
         </workspace-card>
@@ -84,7 +91,7 @@ export class HubUserWorkspace {
 
         <workspace-card>
           <span slot="title">Upcoming Events</span>
-          <em>Events list + map coming...</em>
+          <hub-events></hub-events>
         </workspace-card>
 
         <workspace-card>

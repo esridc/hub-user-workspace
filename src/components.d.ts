@@ -23,6 +23,8 @@ export namespace Components {
     interface HubDiscussionsPostEditor {
         "channelId": string;
     }
+    interface HubEvents {
+    }
     interface HubFeed {
         /**
           * Definition of feed parameters
@@ -33,6 +35,8 @@ export namespace Components {
         "statusUrl": string;
     }
     interface HubText {
+    }
+    interface HubUserNotifications {
     }
     interface HubUserWorkspace {
     }
@@ -78,6 +82,12 @@ declare global {
         prototype: HTMLHubDiscussionsPostEditorElement;
         new (): HTMLHubDiscussionsPostEditorElement;
     };
+    interface HTMLHubEventsElement extends Components.HubEvents, HTMLStencilElement {
+    }
+    var HTMLHubEventsElement: {
+        prototype: HTMLHubEventsElement;
+        new (): HTMLHubEventsElement;
+    };
     interface HTMLHubFeedElement extends Components.HubFeed, HTMLStencilElement {
     }
     var HTMLHubFeedElement: {
@@ -95,6 +105,12 @@ declare global {
     var HTMLHubTextElement: {
         prototype: HTMLHubTextElement;
         new (): HTMLHubTextElement;
+    };
+    interface HTMLHubUserNotificationsElement extends Components.HubUserNotifications, HTMLStencilElement {
+    }
+    var HTMLHubUserNotificationsElement: {
+        prototype: HTMLHubUserNotificationsElement;
+        new (): HTMLHubUserNotificationsElement;
     };
     interface HTMLHubUserWorkspaceElement extends Components.HubUserWorkspace, HTMLStencilElement {
     }
@@ -121,9 +137,11 @@ declare global {
         "hub-discussions-channels": HTMLHubDiscussionsChannelsElement;
         "hub-discussions-moderation": HTMLHubDiscussionsModerationElement;
         "hub-discussions-post-editor": HTMLHubDiscussionsPostEditorElement;
+        "hub-events": HTMLHubEventsElement;
         "hub-feed": HTMLHubFeedElement;
         "hub-status": HTMLHubStatusElement;
         "hub-text": HTMLHubTextElement;
+        "hub-user-notifications": HTMLHubUserNotificationsElement;
         "hub-user-workspace": HTMLHubUserWorkspaceElement;
         "workspace-card": HTMLWorkspaceCardElement;
         "workspace-navigation": HTMLWorkspaceNavigationElement;
@@ -145,6 +163,8 @@ declare namespace LocalJSX {
     interface HubDiscussionsPostEditor {
         "channelId"?: string;
     }
+    interface HubEvents {
+    }
     interface HubFeed {
         /**
           * Definition of feed parameters
@@ -155,6 +175,8 @@ declare namespace LocalJSX {
         "statusUrl"?: string;
     }
     interface HubText {
+    }
+    interface HubUserNotifications {
     }
     interface HubUserWorkspace {
     }
@@ -169,9 +191,11 @@ declare namespace LocalJSX {
         "hub-discussions-channels": HubDiscussionsChannels;
         "hub-discussions-moderation": HubDiscussionsModeration;
         "hub-discussions-post-editor": HubDiscussionsPostEditor;
+        "hub-events": HubEvents;
         "hub-feed": HubFeed;
         "hub-status": HubStatus;
         "hub-text": HubText;
+        "hub-user-notifications": HubUserNotifications;
         "hub-user-workspace": HubUserWorkspace;
         "workspace-card": WorkspaceCard;
         "workspace-navigation": WorkspaceNavigation;
@@ -187,9 +211,11 @@ declare module "@stencil/core" {
             "hub-discussions-channels": LocalJSX.HubDiscussionsChannels & JSXBase.HTMLAttributes<HTMLHubDiscussionsChannelsElement>;
             "hub-discussions-moderation": LocalJSX.HubDiscussionsModeration & JSXBase.HTMLAttributes<HTMLHubDiscussionsModerationElement>;
             "hub-discussions-post-editor": LocalJSX.HubDiscussionsPostEditor & JSXBase.HTMLAttributes<HTMLHubDiscussionsPostEditorElement>;
+            "hub-events": LocalJSX.HubEvents & JSXBase.HTMLAttributes<HTMLHubEventsElement>;
             "hub-feed": LocalJSX.HubFeed & JSXBase.HTMLAttributes<HTMLHubFeedElement>;
             "hub-status": LocalJSX.HubStatus & JSXBase.HTMLAttributes<HTMLHubStatusElement>;
             "hub-text": LocalJSX.HubText & JSXBase.HTMLAttributes<HTMLHubTextElement>;
+            "hub-user-notifications": LocalJSX.HubUserNotifications & JSXBase.HTMLAttributes<HTMLHubUserNotificationsElement>;
             "hub-user-workspace": LocalJSX.HubUserWorkspace & JSXBase.HTMLAttributes<HTMLHubUserWorkspaceElement>;
             "workspace-card": LocalJSX.WorkspaceCard & JSXBase.HTMLAttributes<HTMLWorkspaceCardElement>;
             "workspace-navigation": LocalJSX.WorkspaceNavigation & JSXBase.HTMLAttributes<HTMLWorkspaceNavigationElement>;
