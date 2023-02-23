@@ -1,0 +1,29 @@
+{
+    "releases": [
+        {
+            "timestamp": "2023-02-22T00:00:00Z",
+            "changes": [
+                {"type": "add", "description": "Added active state border around map when adding location to posts in Hub Discussions"},
+                {"type": "add", "description": "Added Advanced Mapping links that allow users to select ArcGIS MapViewer Classic"},
+                {"type": "change", "description": "Changed theme color mapping for buttons"},
+                {"type": "fix", "description": "The Mentions list is now themed"},
+                {"type": "fix", "description": "The on-map controls and widgets now have matching shadows"},
+                {"type": "fix", "description": "Fixed intermittent New content button alignment issue"}
+            ]
+        },
+        {
+            "timestamp": "2023-02-14T00:00:00Z",
+            "changes": [
+                {"type": "add", "description": "Added the ability to select a drawing tool from directly inside the discussions post and reply editor"},
+                {"type": "change", "description": "Removed Discussions announcement modal from layout editor"},
+                {"type": "fix", "description": "Original post list automatically scrolls user to previously viewed threads original post upon returning to original post list from thread view"},
+                {"type": "fix", "description": "Posts without titles can now be edited"},
+                {"type": "fix", "description": "Fixed bug where map drawing tools would error after user signs in"},
+                {"type": "fix", "description": "Close post action menu popover after clicking delete action"},
+                {"type": "fix", "description": "Fixed identified bugs where opening the thread view of a discussions post would not scroll to the intended location"},
+                {"type": "fix", "description": "Fixed typo in 'attendance'"},
+                {"type": "fix", "description": "Fixed issue where were sometimes showing duplicate posts"}
+            ]
+        }
+    ]
+}
