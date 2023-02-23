@@ -35,6 +35,7 @@
   "dependencies": {
     "@esri/hub-common": "^12.6.1",
     "@esri/hub-discussions": "^19.5.1",
+    "@esri/hub-events": "^12.4.1",
     "@stencil/core": "^2.13.0",
     "@types/node": "^18.14.0",
     "esri-loader": "^3.6.0"
