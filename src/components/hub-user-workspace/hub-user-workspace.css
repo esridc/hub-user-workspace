@@ -9,7 +9,7 @@
   grid-template-areas: 
     "global global"
     "header header"
-    "navigation space"
+    "navigation panel"
     "footer footer";  
 }
 #global {
@@ -32,10 +32,11 @@
   padding: 2rem;
   margin-top: 1rem;
 }
-#space {
-  grid-area: space;
+#panel {
+  grid-area: panel;
 }
-#space div {
+.space {
+  /* background-color: blue; */
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
   gap: 10px;

@@ -55,7 +55,11 @@ export class HubUserWorkspace {
             <slot name="header"></slot>
           </div>
           <div id="navigation">navigation</div>
-          <div id="space">{!!state.user ? this.renderWorkspace(this.config) : []}</div>
+          <div id="panel">
+          
+            {this.renderWorkspace(this.config)}
+            {/* {!!state.user ? this.renderWorkspace(this.config) : []} */}
+          </div>
           {/* <arcgis-hub-workspace
             type="project" 
           ></arcgis-hub-workspace> */}
@@ -69,9 +73,22 @@ export class HubUserWorkspace {
   }
 
   renderWorkspace(config:any) {
-    let output = [];
+    let spaceNav = [];
+    let spacePanels = [];
+
+    console.debug("Rendering workspaces");
     if(!!config) {
-      config.spaces.map((space) => {
+      config.spaces.map((space, _spaceIndex) => {
+        // Build up panel nav sections
+        spaceNav.push(
+          <calcite-tab-title 
+            // tab={`space${spaceIndex}`}
+            selected={space.title === config.default}
+          >{space.title}</calcite-tab-title>
+        )
+        let spacePanel = [];
+
+        // Fill out the space panel 
         space.layout.cards.map((card) => {
           // TODO: wrap in function like https://medium.com/@Carmichaelize/dynamic-tag-names-in-react-and-jsx-17e366a684e9
           const CardTag = `${card.type}`;
@@ -89,7 +106,7 @@ export class HubUserWorkspace {
             }
           })
           
-          output.push(
+          spacePanel.push(
             <workspace-card>
               <span slot="title">{card.title}</span>
               <CardTag {...cardProps}>
@@ -97,13 +114,33 @@ export class HubUserWorkspace {
               </CardTag>
             </workspace-card>
           )
-        })
+        }) // space[].layout.cards
+        spacePanels.push(
+          <calcite-tab 
+            // tab={`space${spaceIndex}`}
+            selected={space.title === config.default}
+          >
+            <div class="space">
+              {spacePanel}
+            </div>
+          </calcite-tab>
+        )
       })
     } else {
       // return this.renderDefaultWorkspace();
     }
     // wrapped in div because default workspace?
-    return(<div>{output}</div>);
+
+    const output = (
+      <calcite-tabs>
+        {/* TODO: tab-nav changes to title-nav in newer calcie */}
+        <calcite-tab-nav slot="tab-nav">
+          {spaceNav}
+        </calcite-tab-nav>
+        {spacePanels}
+      </calcite-tabs>
+    )
+    return output;
   }
   renderDefaultWorkspace() {
     return (

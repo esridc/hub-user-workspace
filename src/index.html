@@ -10,7 +10,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://esri.github.io/hub-components/harnesses/calcite/calcite.css"
+      href="https://js.arcgis.com/calcite-components/1.0.7/calcite.css"
     />
     <script
       type="module"
@@ -20,14 +20,14 @@
   <script type="module" src="assets/calcite.esm.js"></script> -->
   </head>
   <body>
-
-  
   <hub-user-workspace
     id="workspace"
     client="2kAcJaj7GkBYg2Wp"
     portal="https://dc.mapsqa.arcgis.com"    
   >
-    <h1 slot="header">User Workspace</h1>
+    <span slot="header">
+      <calcite-loader type="indeterminate" scale="m" value="0"></calcite-loader>
+    </span>
   </hub-user-workspace>
       <script type="module" src="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.esm.js"></script>
     <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.css" />
