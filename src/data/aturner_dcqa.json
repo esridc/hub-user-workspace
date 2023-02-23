@@ -1,0 +1,68 @@
+{
+    "spaces": [
+        {
+            "title": "home",
+            "layout": {
+                "cards": [
+                    {
+                        "type": "hub-text",
+                        "title": "About this Workspace",
+                        "text": "Personalized workspace for {{user.fullName}}. There is quick access to my favorites, specific project discussions, and recent content.",
+                        "values": {}
+                    },
+                    {
+                        "type": "hub-discussions-moderation",
+                        "title": "Project Discussion",
+                        "values": {
+                            "channel-id": "0311a680ff1b44389ad0392f94d5bbbb"
+                        }
+                    },
+                    {
+                        "type": "hub-feed",
+                        "title": "Recent updates",
+                        "values": {
+                            "collection": { "query": ["Initiative"], "type": "item" }
+                        }
+                    },
+                    {
+                        "type": "hub-feed",
+                        "title": "Favorites",
+                        "values": {
+                            "collection": { "groups": ["{{user.favGroupId}}"], "type": "item" }
+                        }
+                    },
+                    {
+                        "type": "hub-user-notifications",
+                        "title": "Notifications",
+                        "values": {}
+                    },
+                    {
+                        "type": "hub-events",
+                        "title": "Upcoming Events",
+                        "values": {}
+                    },
+                    {
+                        "type": "hub-collaborations",
+                        "title": "Teams",
+                        "values": {}
+                    },
+                    {
+                        "type": "hub-discussions-channels",
+                        "title": "Discussion Channels",
+                        "values": {}
+                    },
+                    {
+                        "type": "hub-changelog",
+                        "title": "Hub Changelog",
+                        "values": {}
+                    },
+                    {
+                        "type": "hub-status",
+                        "title": "Hub Status",
+                        "values": {}
+                    }
+                ]
+            }
+        }
+    ]
+}

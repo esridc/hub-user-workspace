@@ -38,6 +38,7 @@
     "@esri/hub-events": "^12.4.1",
     "@stencil/core": "^2.13.0",
     "@types/node": "^18.14.0",
+    "adlib": "^3.0.8",
     "esri-loader": "^3.6.0"
   },
   "devDependencies": {

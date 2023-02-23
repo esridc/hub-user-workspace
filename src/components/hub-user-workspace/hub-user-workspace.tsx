@@ -1,6 +1,7 @@
-import { Component, Host, Prop, h } from '@stencil/core';
+import { Component, Host, Prop, State, Watch, h } from '@stencil/core';
 import { buildCollection } from '../../utils/feeds';
 import state from '../../utils/state';
+import { adlib }  from 'adlib'
 
 @Component({
   tag: 'hub-user-workspace',
@@ -13,17 +14,37 @@ export class HubUserWorkspace {
   @Prop({ mutable: true }) redirect:string = null;
   @Prop({ mutable: true }) portal:string = "https://www.arcgis.com";
 
+
+  // Loaded workspace configuration
+  @State() config: any = null;
+
   componentWillLoad() {
-    // Save app configuration properties
-
-  }
-
-  render() {
+    // the redirect may be set after loading based on deploy host
     state.app = {
       client: this.client,
       redirect: this.redirect,
       portal: this.portal
     }    
+  }
+  async loadConfiguration() {
+    // Fetch workspace configuration properties
+    const result = await fetch(`./data/${state.user.username}.json`);
+    const data = await result.json();
+    this.config = data;
+  }
+
+  @Watch('redirect')
+  updateAppState(redirectUpdate:string) {
+    // the redirect may be set after loading based on deploy host
+    state.app.redirect = redirectUpdate;
+  }
+
+  componentDidLoad() {
+    if(!!state.user) {
+      this.loadConfiguration();
+    }
+  }
+  render() {
     return (
       <Host>
         <div class="workspace">
@@ -34,7 +55,7 @@ export class HubUserWorkspace {
             <slot name="header"></slot>
           </div>
           <div id="navigation">navigation</div>
-          <div id="space">{!!state.user ? this.renderWorkspace() : []}</div>
+          <div id="space">{!!state.user ? this.renderWorkspace(this.config) : []}</div>
           {/* <arcgis-hub-workspace
             type="project" 
           ></arcgis-hub-workspace> */}
@@ -47,7 +68,44 @@ export class HubUserWorkspace {
     );
   }
 
-  renderWorkspace() {
+  renderWorkspace(config:any) {
+    let output = [];
+    if(!!config) {
+      config.spaces.map((space) => {
+        space.layout.cards.map((card) => {
+          // TODO: wrap in function like https://medium.com/@Carmichaelize/dynamic-tag-names-in-react-and-jsx-17e366a684e9
+          const CardTag = `${card.type}`;
+          const settings = {
+            user: state.user
+          };
+          
+          const cardProps = adlib(card.values, settings);
+          const cardText = adlib(card.text, settings)
+          
+          Object.keys(cardProps).map((key) => {
+            // Collections need catalogs
+            if(key === 'collection') {
+              cardProps[key] = buildCollection( cardProps[key] );
+            }
+          })
+          
+          output.push(
+            <workspace-card>
+              <span slot="title">{card.title}</span>
+              <CardTag {...cardProps}>
+                {cardText}
+              </CardTag>
+            </workspace-card>
+          )
+        })
+      })
+    } else {
+      // return this.renderDefaultWorkspace();
+    }
+    // wrapped in div because default workspace?
+    return(<div>{output}</div>);
+  }
+  renderDefaultWorkspace() {
     return (
       <div>
         <workspace-card>
