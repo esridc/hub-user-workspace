@@ -28,6 +28,9 @@ export const config: Config = {
       copy: [
         {
           src: "./**/*.html",
+        },
+        {
+          src: "./**/*.json", dest: 'data/'
         }
       ]
     },
