@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, Prop, h } from '@stencil/core';
 import { buildCollection } from '../../utils/feeds';
 import state from '../../utils/state';
 
@@ -8,7 +8,22 @@ import state from '../../utils/state';
   shadow: true,
 })
 export class HubUserWorkspace {
+
+  @Prop({ mutable: true }) client:string = null;
+  @Prop({ mutable: true }) redirect:string = null;
+  @Prop({ mutable: true }) portal:string = "https://www.arcgis.com";
+
+  componentWillLoad() {
+    // Save app configuration properties
+
+  }
+
   render() {
+    state.app = {
+      client: this.client,
+      redirect: this.redirect,
+      portal: this.portal
+    }    
     return (
       <Host>
         <div class="workspace">

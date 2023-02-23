@@ -49,7 +49,6 @@ export class HubFeed {
               <calcite-list-item label={entry.name} description={timeAgo(entry.updatedDate)}>
                 <calcite-icon scale="s" icon="files" slot="content-start"></calcite-icon>
                 <calcite-dropdown scale="m" slot="actions-end">
-                
                   <calcite-action icon="ellipsis" label="menu"  slot="dropdown-trigger"></calcite-action>
                   <calcite-dropdown-group>
                   <calcite-dropdown-item

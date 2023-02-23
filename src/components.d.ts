@@ -39,6 +39,9 @@ export namespace Components {
     interface HubUserNotifications {
     }
     interface HubUserWorkspace {
+        "client": string;
+        "portal": string;
+        "redirect": string;
     }
     interface WorkspaceCard {
     }
@@ -179,6 +182,9 @@ declare namespace LocalJSX {
     interface HubUserNotifications {
     }
     interface HubUserWorkspace {
+        "client"?: string;
+        "portal"?: string;
+        "redirect"?: string;
     }
     interface WorkspaceCard {
     }

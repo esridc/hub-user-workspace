@@ -22,7 +22,11 @@
   <body>
 
   
-  <hub-user-workspace>
+  <hub-user-workspace
+    id="workspace"
+    client="2kAcJaj7GkBYg2Wp"
+    portal="https://dc.mapsqa.arcgis.com"    
+  >
     <h1 slot="header">User Workspace</h1>
   </hub-user-workspace>
       <script type="module" src="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.esm.js"></script>
@@ -35,5 +39,13 @@
       padding: 0;
     }
   </style>
+
+  <script>
+    // set the redirect so it works both locally + deployed
+    const workspace = document.getElementById('workspace');
+    // the slash is included in window.location
+    const redirect = `${window.location}redirect.html`;
+    workspace.redirect = redirect;
+  </script>
   </body>
 </html>
