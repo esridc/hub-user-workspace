@@ -90,21 +90,6 @@ export class HubUserWorkspace {
         </workspace-card>
 
         <workspace-card>
-          <span slot="title">Engagement Stats</span>
-          <hub-activity-stats></hub-activity-stats>
-        </workspace-card>
-
-        {/* <workspace-card>
-              <span slot="title">Recent Activity</span>
-              {this.renderList()}
-            </workspace-card> */}
-
-        <workspace-card>
-          <span slot="title">Nearby</span>
-          <em>map coming...</em>
-        </workspace-card>
-
-        <workspace-card>
           <span slot="title">Upcoming Events</span>
           <hub-events></hub-events>
         </workspace-card>
@@ -127,6 +112,32 @@ export class HubUserWorkspace {
         <workspace-card>
           <span slot="title">Hub Status</span>
           <hub-status></hub-status>
+        </workspace-card>
+
+        <workspace-card>
+          <span slot="title">Work in Progress</span>
+          <hub-text>
+            Todo:
+            <ol>
+              <li>Make Engagement Stats dynamic</li>
+              <li>Add Nearby based on User places of interest</li>
+            </ol>
+          </hub-text>
+        </workspace-card>
+
+        <workspace-card>
+          <span slot="title">Engagement Stats</span>
+          <hub-activity-stats></hub-activity-stats>
+        </workspace-card>
+
+        {/* <workspace-card>
+              <span slot="title">Recent Activity</span>
+              {this.renderList()}
+            </workspace-card> */}
+
+        <workspace-card>
+          <span slot="title">Nearby</span>
+          <em>map coming...</em>
         </workspace-card>
 
         {/* <workspace-card>
