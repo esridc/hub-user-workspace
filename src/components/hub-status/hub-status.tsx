@@ -8,7 +8,13 @@ import { Component, Host, h, Prop, State } from '@stencil/core';
 export class HubStatus {
 
   @Prop() statusUrl:string = 'https://arcgis.github.io/hub-status/status.json';
-  
+
+  statusTypes = {
+    'normal': {icon: 'thumbs-up', color: 'green'},
+    'degraded': {icon: 'exclamation-mark-circle', color: 'yellow'},
+    'down': {icon: 'x-octagon-f', color: 'red'}
+  }
+
   /**
    * 
   "overview": {
@@ -53,13 +59,30 @@ export class HubStatus {
   render() {
     return (
       <Host>
-        <ul>
-          <li>Overall: {this.status?.overview?.status}</li>
+        <calcite-list id="status">
+          <calcite-list-item 
+            label="Overall" 
+            description={this.status?.overview?.status}
+          >
+          </calcite-list-item>
+          
           {this.status?.services?.map((s) => {
-            return <li>{s['Service Name']}: {s['Status']}</li>
+            return (
+              <calcite-list-item 
+                label={s['Service Name']}
+                description={this.status?.overview?.status}
+              >
+                <calcite-chip
+                  icon={this.statusTypes[s['Status']].icon}
+                  slot="content-end"
+                >
+                  {s['Status']}
+                </calcite-chip>
+              </calcite-list-item>
+            )
           })}
           
-        </ul>
+        </calcite-list>
       </Host>
     );
   }
