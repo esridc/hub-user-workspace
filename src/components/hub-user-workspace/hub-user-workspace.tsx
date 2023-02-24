@@ -33,8 +33,12 @@ export class HubUserWorkspace {
   async loadConfiguration() {
     // Fetch workspace configuration properties
     let result = await fetch(`./data/${state.user.username}.json`);
-    if(!result) {
-      result = await fetch(`./${this.defaultConfig}.json`);
+    console.debug("loadConfiguration: result", {
+      result
+    });
+    if(result.status === 404) {
+
+      result = await fetch(`./${this.defaultConfig}`);
     }
     const data = await result.json();
     this.config = data;
