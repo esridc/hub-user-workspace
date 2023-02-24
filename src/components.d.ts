@@ -40,6 +40,10 @@ export namespace Components {
     }
     interface HubUserWorkspace {
         "client": string;
+        /**
+          * Default workspace config if the user doesn't have a saved config
+         */
+        "defaultConfig": string;
         "portal": string;
         "redirect": string;
     }
@@ -183,6 +187,10 @@ declare namespace LocalJSX {
     }
     interface HubUserWorkspace {
         "client"?: string;
+        /**
+          * Default workspace config if the user doesn't have a saved config
+         */
+        "defaultConfig"?: string;
         "portal"?: string;
         "redirect"?: string;
     }

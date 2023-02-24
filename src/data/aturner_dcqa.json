@@ -2,7 +2,7 @@
     "default": "home",
     "spaces": [
         {
-            "title": "home",
+            "title": "Home",
             "layout": {
                 "cards": [
                     {
@@ -13,7 +13,7 @@
                     },
                     {
                         "type": "hub-discussions-moderation",
-                        "title": "Project Discussion",
+                        "title": "Org Discussion",
                         "values": {
                             "channel-id": "0311a680ff1b44389ad0392f94d5bbbb"
                         }
@@ -66,7 +66,48 @@
             }
         },
         {
-            "title": "personal",
+            "title": "Parks Project",
+            "layout": {
+                "cards": [
+                    {
+                        "type": "hub-text",
+                        "title": "Notes from Meeting",
+                        "text": "This space will show Project discussions, recent content split out by group, and upcoming events specific to this project",
+                        "values": {}
+                    },
+                    {
+                        "type": "hub-discussions-moderation",
+                        "title": "Org Discussion",
+                        "values": {
+                            "channel-id": "0311a680ff1b44389ad0392f94d5bbbb"
+                        }
+                    },
+                    {
+                        "type": "hub-feed",
+                        "title": "Supporting Teams",
+                        "values": {
+                            "collection": { "groups": ["2e6e801b29d34d19a67dbf0da3457d18", "5831937c303946de99020c4c6ef7d363"], "type": "group" }
+                        }
+                    },
+                    {
+                        "type": "hub-feed",
+                        "title": "Updates from Project Team",
+                        "values": {
+                            "collection": { "groups": ["2e6e801b29d34d19a67dbf0da3457d18"], "type": "item" }
+                        }
+                    },
+                    {
+                        "type": "hub-feed",
+                        "title": "Updates from Parks Dept",
+                        "values": {
+                            "collection": { "groups": ["5831937c303946de99020c4c6ef7d363"], "type": "item" }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "title": "Nearby",
             "layout": {
                 "cards": [
                     {

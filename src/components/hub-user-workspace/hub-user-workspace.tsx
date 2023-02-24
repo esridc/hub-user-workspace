@@ -14,6 +14,10 @@ export class HubUserWorkspace {
   @Prop({ mutable: true }) redirect:string = null;
   @Prop({ mutable: true }) portal:string = "https://www.arcgis.com";
 
+  /** 
+   * Default workspace config if the user doesn't have a saved config
+   */
+  @Prop() defaultConfig:string = "./data/default.json"
 
   // Loaded workspace configuration
   @State() config: any = null;
@@ -28,7 +32,10 @@ export class HubUserWorkspace {
   }
   async loadConfiguration() {
     // Fetch workspace configuration properties
-    const result = await fetch(`./data/${state.user.username}.json`);
+    let result = await fetch(`./data/${state.user.username}.json`);
+    if(!result) {
+      result = await fetch(`./${this.defaultConfig}.json`);
+    }
     const data = await result.json();
     this.config = data;
   }
@@ -57,8 +64,8 @@ export class HubUserWorkspace {
           <div id="navigation">navigation</div>
           <div id="panel">
           
-            {this.renderWorkspace(this.config)}
-            {/* {!!state.user ? this.renderWorkspace(this.config) : []} */}
+            {/* {this.renderWorkspace(this.config)} */}
+            {!!state.user ? this.renderWorkspace(this.config) : <span>Sign in with AGO QA account.</span>}
           </div>
           {/* <arcgis-hub-workspace
             type="project" 
@@ -136,6 +143,13 @@ export class HubUserWorkspace {
         {/* TODO: tab-nav changes to title-nav in newer calcie */}
         <calcite-tab-nav slot="tab-nav">
           {spaceNav}
+          <calcite-button
+            appearance="transparent"
+            icon-start="plus"
+            onclick={(_ev) => {alert("This will create a new space")}}
+          >
+            Create Space
+          </calcite-button>
         </calcite-tab-nav>
         {spacePanels}
       </calcite-tabs>
