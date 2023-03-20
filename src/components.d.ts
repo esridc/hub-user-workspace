@@ -34,6 +34,10 @@ export namespace Components {
     interface HubStatus {
         "statusUrl": string;
     }
+    interface HubTable {
+        "data": Array<any>;
+        "limit": number;
+    }
     interface HubText {
     }
     interface HubUserNotifications {
@@ -107,6 +111,12 @@ declare global {
         prototype: HTMLHubStatusElement;
         new (): HTMLHubStatusElement;
     };
+    interface HTMLHubTableElement extends Components.HubTable, HTMLStencilElement {
+    }
+    var HTMLHubTableElement: {
+        prototype: HTMLHubTableElement;
+        new (): HTMLHubTableElement;
+    };
     interface HTMLHubTextElement extends Components.HubText, HTMLStencilElement {
     }
     var HTMLHubTextElement: {
@@ -147,6 +157,7 @@ declare global {
         "hub-events": HTMLHubEventsElement;
         "hub-feed": HTMLHubFeedElement;
         "hub-status": HTMLHubStatusElement;
+        "hub-table": HTMLHubTableElement;
         "hub-text": HTMLHubTextElement;
         "hub-user-notifications": HTMLHubUserNotificationsElement;
         "hub-user-workspace": HTMLHubUserWorkspaceElement;
@@ -181,6 +192,10 @@ declare namespace LocalJSX {
     interface HubStatus {
         "statusUrl"?: string;
     }
+    interface HubTable {
+        "data"?: Array<any>;
+        "limit"?: number;
+    }
     interface HubText {
     }
     interface HubUserNotifications {
@@ -208,6 +223,7 @@ declare namespace LocalJSX {
         "hub-events": HubEvents;
         "hub-feed": HubFeed;
         "hub-status": HubStatus;
+        "hub-table": HubTable;
         "hub-text": HubText;
         "hub-user-notifications": HubUserNotifications;
         "hub-user-workspace": HubUserWorkspace;
@@ -228,6 +244,7 @@ declare module "@stencil/core" {
             "hub-events": LocalJSX.HubEvents & JSXBase.HTMLAttributes<HTMLHubEventsElement>;
             "hub-feed": LocalJSX.HubFeed & JSXBase.HTMLAttributes<HTMLHubFeedElement>;
             "hub-status": LocalJSX.HubStatus & JSXBase.HTMLAttributes<HTMLHubStatusElement>;
+            "hub-table": LocalJSX.HubTable & JSXBase.HTMLAttributes<HTMLHubTableElement>;
             "hub-text": LocalJSX.HubText & JSXBase.HTMLAttributes<HTMLHubTextElement>;
             "hub-user-notifications": LocalJSX.HubUserNotifications & JSXBase.HTMLAttributes<HTMLHubUserNotificationsElement>;
             "hub-user-workspace": LocalJSX.HubUserWorkspace & JSXBase.HTMLAttributes<HTMLHubUserWorkspaceElement>;
