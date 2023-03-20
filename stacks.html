@@ -1,0 +1,169 @@
+<html>
+
+<head>
+  <script type="module" src="https://js.arcgis.com/calcite-components/1.0.7/calcite.esm.js"></script>
+<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.7/calcite.css" />
+
+  <style>
+    .results {
+      width: 700px;
+      height: 400px;
+        display: grid;
+        gap: 1px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .result {
+      width: 260px;
+      height: 100px;
+    }
+    div > div {
+      /* padding: 10px; */
+    }
+    .stack {
+      z-index: 10;
+    }
+    calcite-card {
+      cursor: pointer;
+    }
+    .stacked {
+      position: relative;
+      top: -70px;
+      left: 10px;
+      z-index: 9;
+    }
+    .stacked:hover {
+      /* top: -100px; */
+    }
+  </style>
+  </head>
+  <body>
+    <div class="results">
+      
+<div class="result">
+  <calcite-card
+    class="stack"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Map Result</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two,
+      but isn't overly verbose.
+    </span>
+  </calcite-card>
+   <calcite-card
+    class="stacked"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Result 2</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two    </span>
+    <calcite-link class="calcite-theme-dark" slot="footer-end">
+      4 Layers
+    </calcite-link>
+  </calcite-card>
+</div>  <!-- card -->
+
+<div  class="result">
+  <calcite-card
+    class="stack"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Dataset result</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two,
+      but isn't overly verbose.
+    </span>
+  </calcite-card>
+</div>  <!-- card -->
+
+<div  class="result">
+  <calcite-card
+    class="stack"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Trees over the years</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two,
+      but isn't overly verbose.
+    </span>
+  </calcite-card>
+      <calcite-card
+    class="stacked"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Result 2</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two    
+    </span>
+    <calcite-chip slot="footer-end" value="calcite chip" icon="walking">
+      Recreation
+  </calcite-chip>
+    <!-- <calcite-link class="calcite-theme-dark" slot="footer-end">
+      7 Datasets (2015-2022)
+    </calcite-link> -->
+  </calcite-card>
+</div>  <!-- card -->     
+<div style="width: 260px">
+  <calcite-card
+    class="stack"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Dataset result</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two,
+      but isn't overly verbose.
+    </span>
+  </calcite-card>
+</div>  <!-- card -->     
+<div style="width: 260px">
+  <calcite-card
+    class="stack"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Dataset result</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two,
+      but isn't overly verbose.
+    </span>
+  </calcite-card>
+  
+</div>  <!-- card -->     
+<div style="width: 260px">
+  <calcite-card
+    class="stack"
+    intl-loading="Loading"
+    intl-select="Select"
+    intl-deselect="Deselect"
+    thumbnail-position="block-start"
+  >
+    <h3 slot="title">Dataset result</h3>
+    <span slot="subtitle">
+      A great example of a study description that might wrap to a line or two,
+      but isn't overly verbose.
+    </span>
+  </calcite-card>
+</div>  <!-- card -->           
+    </div> <!-- results -->
+  </body>
+</html>
