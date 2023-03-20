@@ -35,12 +35,12 @@ export class HubCollaborations {
   // This won't work until I can figure out how to use QA discussions
   async requestChannel(groupId) {
     const createOptions:ICreateChannel = {
-      access: SharingAccess.PUBLIC,
+      access: SharingAccess.PRIVATE,
       groups: [groupId],
       defaultPostStatus: PostStatus.APPROVED
     }
 
-    console.debug("createChannel", {groupId})
+    console.debug("createChannel", {createOptions})
     const response = createChannel({
       data: createOptions,
       ...state.context.hubRequestOptions

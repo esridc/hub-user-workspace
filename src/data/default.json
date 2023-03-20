@@ -13,6 +13,13 @@
                     },
                     {
                         "type": "hub-discussions-moderation",
+                        "title": "Team Discussion (new)",
+                        "values": {
+                            "channel-id": "a177d07a3c1e4c28ae319deca74f97e8"
+                        }
+                    },
+                    {
+                        "type": "hub-discussions-moderation",
                         "title": "Org Discussion",
                         "values": {
                             "channel-id": "0311a680ff1b44389ad0392f94d5bbbb"
